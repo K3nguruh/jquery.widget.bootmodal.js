@@ -2,11 +2,17 @@
     /************************************************************/
     /*                                                          */
     /* Widget: $.bootmodal()                                    */
-    /* Datum:  2021-04-11, 15:30                                */
+    /* Datum:  2021-04-11, 16:40                                */
+    /*                                                          */
+    /* Autor: K3nguruh <https://github.com/K3nguruh>            */
+    /* Lizenz : MIT                                             */
+    /*                                                          */
+    /* Inspired by Nick Payne <nick@kurai.co.uk>                */
+    /* http://bootboxjs.com                                     */
     /*                                                          */
     /************************************************************/
     $.widget('custom.bootmodal', {
-        version: '0.x.x-beta',
+        version: '0.0.1-beta',
         //
         //
         options: {
@@ -121,7 +127,7 @@
             that.$container = $(that.options.container);
             //
             //
-            if (/*that.$this.prop('nodeName')*/ that._this.nodeName !== "#document") {
+            if (that._this.nodeName !== "#document") {
                 that.$this.hide();
                 $.extend(true, that.options, {message: that.$this.html()}, that.$this.data());
             }
@@ -261,11 +267,6 @@
             //
             //
             that.options.buttons = buttons;
-            //
-            //
-
-
-
             //
             //
             that._buildModal();
@@ -627,11 +628,6 @@
         //
         hide: function() {
             this._hide();
-        },
+        }
     });
-    /************************************************************/
-    /*                                                          */
-    /* Widget: XXX                                              */
-    /*                                                          */
-    /************************************************************/
 })(jQuery);
