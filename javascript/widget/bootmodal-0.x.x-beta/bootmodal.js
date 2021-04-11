@@ -1,18 +1,18 @@
 ;(function($) {
     /************************************************************/
     /*                                                          */
-    /* Widget: $.bootmodal()                                    */
-    /* Datum:  2021-04-11, 16:40                                */
+    /* Widget:  $.bootmodal()                                   */
+    /* Datum:   2021-04-11, 20:49                               */
     /*                                                          */
-    /* Autor: K3nguruh <https://github.com/K3nguruh>            */
-    /* Lizenz : MIT                                             */
+    /* Autor:   K3nguruh <https://github.com/K3nguruh>          */
+    /* Lizenz:  MIT                                             */
     /*                                                          */
     /* Inspired by Nick Payne <nick@kurai.co.uk>                */
     /* http://bootboxjs.com                                     */
     /*                                                          */
     /************************************************************/
     $.widget('custom.bootmodal', {
-        version: '0.0.1-beta',
+        version: '0.0.2-beta',
         //
         //
         options: {
@@ -244,17 +244,9 @@
                     button.classes = key;
                 }
                 //
-                // CALLBACK
-                if (!button.callback) {
-                    button.callback = undefined;
-                }
-                // If the callback is a string and it could be a function, the string is converted into a function.
-                if (typeof button.callback === "string" && that.regexp.func.test(button.callback)) {
+                // CALLBACK: If there is a callback but it is not a function, check whether it could be a function
+                if (button.callback && typeof button.callback !== "function" && that.regexp.func.test(button.callback)) {
                     button.callback = new Function('return ' + button.callback)();
-                }
-                //
-                if (typeof button.callback !== "function") {
-                    button.callback = undefined;
                 }
                 //
                 // BUTTONS
@@ -341,8 +333,8 @@
             //
             that.options.buttons = buttons;
             //
-            // CALLBACK: If the callback is a string and it could be a function, the string is converted into a function.
-            if (typeof that.options.callback === "string" && that.regexp.func.test(that.options.callback)) {
+            // CALLBACK: If there is a callback but it is not a function, check whether it could be a function
+            if (that.options.callback && typeof that.options.callback !== "function" && that.regexp.func.test(that.options.callback)) {
                 that.options.callback = new Function('return ' + that.options.callback)();
             }
         },
