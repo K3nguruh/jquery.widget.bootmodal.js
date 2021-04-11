@@ -2,10 +2,7 @@ index.*
 _index.*
 
 
-content/*
-!content/dialog/
-
-
+content/
 content_c/
 include/
 
