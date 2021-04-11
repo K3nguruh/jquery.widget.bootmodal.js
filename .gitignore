@@ -1,3 +1,7 @@
+index.*
+_index.*
+
+
 content/*
 !content/dialog/
 
