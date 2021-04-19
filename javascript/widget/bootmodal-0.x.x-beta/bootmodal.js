@@ -1,8 +1,8 @@
 ;(function($) {
     /************************************************************/
     /*                                                          */
-    /* Widget:  $.bootmodal()                                   */
-    /* Datum:   2021-04-11, 20:49                               */
+    /* Widget:  bootmodal                                       */
+    /* Datum:   2021-04-19, 10:10                               */
     /*                                                          */
     /* Autor:   K3nguruh <https://github.com/K3nguruh>          */
     /* Lizenz:  MIT                                             */
@@ -12,7 +12,7 @@
     /*                                                          */
     /************************************************************/
     $.widget('custom.bootmodal', {
-        version: '0.0.2-beta',
+        version: '0.0.3-beta',
         //
         //
         options: {
@@ -486,6 +486,11 @@
             //
             // @FUNCTION|options.onShow
             if (that.options.onShow) {
+                //
+                if (typeof that.options.onShow !== "function" && that.regexp.func.test(that.options.onShow)) {
+                    that.options.onShow = new Function('return ' + that.options.onShow)();
+                }
+                //
                 if (typeof that.options.onShow === "function") {
                     that.$modal.on('show.bs.modal', that.options.onShow);
                 }
@@ -496,6 +501,11 @@
             //
             // @FUNCTION|options.onShown
             if (that.options.onShown) {
+                //
+                if (typeof that.options.onShown !== "function" && that.regexp.func.test(that.options.onShown)) {
+                    that.options.onShown = new Function('return ' + that.options.onShown)();
+                }
+                //
                 if (typeof that.options.onShown === "function") {
                     that.$modal.on('shown.bs.modal', that.options.onShown);
                 }
@@ -520,6 +530,11 @@
             //
             // @FUNCTION|options.onHide
             if (that.options.onHide) {
+                //
+                if (typeof that.options.onHide !== "function" && that.regexp.func.test(that.options.onHide)) {
+                    that.options.onHide = new Function('return ' + that.options.onHide)();
+                }
+                //
                 if (typeof that.options.onHide === "function") {
                     that.$modal.on('hide.bs.modal', that.options.onHide);
                 }
@@ -530,6 +545,11 @@
             //
             // @FUNCTION|options.onHidden
             if (that.options.onHidden) {
+                //
+                if (typeof that.options.onHidden !== "function" && that.regexp.func.test(that.options.onHidden)) {
+                    that.options.onHidden = new Function('return ' + that.options.onHidden)();
+                }
+                //
                 if (typeof that.options.onHidden === "function") {
                     that.$modal.on('hidden.bs.modal', that.options.onHidden);
                 }
