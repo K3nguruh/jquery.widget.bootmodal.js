@@ -1,1 +1,1 @@
-# bootmodal
+# jquery.widget.bootmodal.js
